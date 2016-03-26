@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/choose_dataset"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:text="@string/dataset_select_pics" />
+
+        <TextView
+            android:id="@+id/dataset_path_txt"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:text="dataset path is empty!" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/choose_calibration"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dip"
+            android:text="choose_calibration" />
+
+        <TextView
+            android:id="@+id/cal_path_txt"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:text="calibration path is empty!" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/choose_voc"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dip"
+            android:text="choose_voc" />
+
+        <TextView
+            android:id="@+id/voc_path_txt"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:text="voc path is empty!" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dip"
+            android:text="finish and start SLAM" />
+
+        <TextView
+            android:layout_width="250dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:text="" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dip"
+        android:gravity="center_horizontal"
+        android:text="tips:only support test for TUM dataset\ncalibration means TUMX.yaml correspondingly."
+        android:textColor="#CCCCCC" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ORB_SLAM2_Android</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="main_title">ORB_SLAM2\n for Android</string>
+    <string name="dataset_mode">DataSetMode</string>
+    <string name="camera_mode">CameraMode</string>
+    <string name="dataset_select_pics">select a dataset</string>
+    <string name="dataset_select_voc">select Voc.txt</string>
+
+</resources>

@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/camera_calibrate"
+        android:layout_width="150dip"
+        android:layout_height="wrap_content"
+        android:text="calibrate camera" />
+
+    <Button
+        android:id="@+id/choose_calibration"
+        android:layout_width="150dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dip"
+        android:text="choose_calibration" />
+
+</LinearLayout>

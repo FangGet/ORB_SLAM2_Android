@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="orb.slam2.android"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="orb.slam2.android.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="orb.slam2.android.DataSetModeActivity"
+            android:label="DataSetMode"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="orb.slam2.android.CameraModeActivity"
+            android:label="CameraMode"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="orb.slam2.android.FileChooserActivity"
+            android:label="ChooseDirectory"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="orb.slam2.android.ORBSLAMActivity"
+            android:label="ORB_SLAM2"
+            android:screenOrientation="landscape" >
+        </activity>
+    </application>
+
+</manifest>
