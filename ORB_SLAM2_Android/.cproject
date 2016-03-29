@@ -21,7 +21,7 @@
 					<folderInfo id="com.android.toolchain.gcc.678125027.1770531638" name="/" resourcePath="">
 						<toolChain id="com.android.toolchain.gcc.635154680" name="Android GCC" superClass="com.android.toolchain.gcc">
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.android.targetPlatform.132446173" isAbstract="false" superClass="com.android.targetPlatform"/>
-							<builder id="com.android.builder.157280964" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder" superClass="com.android.builder">
+							<builder command="ndk-build" id="com.android.builder.157280964" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Android Builder" superClass="com.android.builder">
 								<outputEntries>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="obj"/>
 									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="libs"/>
@@ -50,5 +50,10 @@
 		<scannerConfigBuildInfo instanceId="com.android.toolchain.gcc.678125027;com.android.toolchain.gcc.678125027.1770531638;com.android.gcc.compiler.170470533;com.android.gcc.inputType.962795971">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.android.AndroidPerProjectProfile"/>
 		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Default">
+			<resource resourceType="PROJECT" workspacePath="/ORB_SLAM2_Android"/>
+		</configuration>
 	</storageModule>
 </cproject>

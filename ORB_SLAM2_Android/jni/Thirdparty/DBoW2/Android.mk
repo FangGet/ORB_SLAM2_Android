@@ -7,6 +7,7 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE :=DBoW2
+LOCAL_SRC_FILES:=test.cpp
 
 #LOCAL_STATIC_LIBRARIES:=DLib
 
@@ -20,6 +21,7 @@ LOCAL_MODULE :=DBoW2
 #FILE_LIST:=$(wildcard $(LOCAL_PATH)/src/*.cpp)
 #LOCAL_SRC_FILES:=$(FILE_LIST:$(LOCAL_PATH)/%=%)
 
-LOCAL_SHARED_LIBRARIES:=libopencv
+LOCAL_SHARED_LIBRARIES:=libopencc
+#LOCAL_LDLIBS:=-lopencv
 
 include $(BUILD_SHARED_LIBRARY)
