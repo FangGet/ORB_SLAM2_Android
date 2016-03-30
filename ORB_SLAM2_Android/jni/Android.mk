@@ -123,7 +123,7 @@ LOCAL_PATH:=$(MAIN_DIR)
 include $(BUILD_SHARED_LIBRARY)
 ############################################################
 
-##############ORB_SLAM2模块#########################################
+##############ORB_SLAM2模块##################################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
 OPENCV_LIB_TYPE:=STATIC
@@ -143,6 +143,28 @@ LOCAL_SHARED_LIBRARIES+=DBoW2
 LOCAL_SHARED_LIBRARIES+=DLib
 LOCAL_SHARED_LIBRARIES+=g2o
 LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/ORB_SLAM2/include
+LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
+LOCAL_CPPFLAGS += -D__cplusplus=201103L
+LOCAL_PATH:=$(MAIN_DIR)
+include $(BUILD_SHARED_LIBRARY)
+############################################################
+
+##############ORB_SLAM2 執行模块###############################
+include $(CLEAR_VARS)
+MAIN_DIR:=$(LOCAL_PATH)
+OPENCV_LIB_TYPE:=STATIC
+ifeq ("$(wildcard $(OPENCV_MK_PATH))","")  
+#try to load OpenCV.mk from default install location  
+include E:/ORB_SLAM2/OpenCV-2.4.9-android-sdk/sdk/native/jni/OpenCV.mk
+else  
+include $(OPENCV_MK_PATH)  
+endif 
+LOCAL_MODULE := ORB_SLAM2_EXCUTOR
+LOCAL_C_INCLUDES+=$(LOCAL_PATH)/Thirdparty/eigen3
+LOCAL_C_INCLUDES+=orb_slam2_android_nativefunc_OrbNdkHelper.h
+LOCAL_SRC_FILES+=orb_slam2_android_nativefunc_OrbNdkHelper.cpp
+LOCAL_SHARED_LIBRARIES+=ORB_SLAM2
+LOCAL_SHARED_LIBRARIES+=g2o
 LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
 LOCAL_CPPFLAGS += -D__cplusplus=201103L
 LOCAL_PATH:=$(MAIN_DIR)

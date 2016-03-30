@@ -56,4 +56,5 @@
 			<resource resourceType="PROJECT" workspacePath="/ORB_SLAM2_Android"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

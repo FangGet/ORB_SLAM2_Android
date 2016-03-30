@@ -29,11 +29,17 @@
 namespace ORB_SLAM2
 {
 
+//implementation for singleton instance to remain alive for instance existed in JNI interface.
+System* System::_instance = NULL;
+System* System::get_instance() {
+	return _instance;
+}
+
 System::System(const string &strVocFile, const string &strSettingsFile, const eSensor sensor,
                const bool bUseViewer):mSensor(sensor),mbReset(false),mbActivateLocalizationMode(false),
         mbDeactivateLocalizationMode(false)
 {
-    // Output welcome message
+	_instance = this;
     cout << endl <<
     "ORB-SLAM2 Copyright (C) 2014-2016 Raul Mur-Artal, University of Zaragoza." << endl <<
     "This program comes with ABSOLUTELY NO WARRANTY;" << endl  <<
