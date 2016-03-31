@@ -14,5 +14,5 @@ public class OrbNdkHelper {
 	 */
 	public static native void initSystemWithParameters(String VOCPath,String calibrationPath);
 	
-	public static native int[] startCurrentORB(double curTimeStamp,int[] data,int w,int h);
+	public static native int startCurrentORB(double curTimeStamp,int[] data,int w,int h);
 }

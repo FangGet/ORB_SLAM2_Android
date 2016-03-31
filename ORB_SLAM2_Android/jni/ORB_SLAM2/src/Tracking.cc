@@ -36,7 +36,10 @@
 #include<iostream>
 
 #include<mutex>
+#include <android/log.h>
+#define LOG_TAG "ORB_SLAM_TRACK"
 
+#define LOG(...) __android_log_print(ANDROID_LOG_ERROR,LOG_TAG, __VA_ARGS__)
 
 using namespace std;
 
@@ -258,7 +261,6 @@ cv::Mat Tracking::GrabImageMonocular(const cv::Mat &im, const double &timestamp)
         mCurrentFrame = Frame(mImGray,timestamp,mpIniORBextractor,mpORBVocabulary,mK,mDistCoef,mbf,mThDepth);
     else
         mCurrentFrame = Frame(mImGray,timestamp,mpORBextractorLeft,mpORBVocabulary,mK,mDistCoef,mbf,mThDepth);
-
     Track();
 
     return mCurrentFrame.mTcw.clone();
@@ -278,10 +280,13 @@ void Tracking::Track()
 
     if(mState==NOT_INITIALIZED)
     {
-        if(mSensor==System::STEREO || mSensor==System::RGBD)
-            StereoInitialization();
-        else
-            MonocularInitialization();
+        if(mSensor==System::STEREO || mSensor==System::RGBD){
+        	  StereoInitialization();
+        }
+        else{
+           MonocularInitialization();
+        }
+
 
         mpFrameDrawer->Update(this);
 
@@ -610,9 +615,9 @@ void Tracking::MonocularInitialization()
         cv::Mat Rcw; // Current Camera Rotation
         cv::Mat tcw; // Current Camera Translation
         vector<bool> vbTriangulated; // Triangulated Correspondences (mvIniMatches)
-
         if(mpInitializer->Initialize(mCurrentFrame, mvIniMatches, Rcw, tcw, mvIniP3D, vbTriangulated))
         {
+        	LOG("mpInitializer->Initialize");
             for(size_t i=0, iend=mvIniMatches.size(); i<iend;i++)
             {
                 if(mvIniMatches[i]>=0 && !vbTriangulated[i])
@@ -621,15 +626,16 @@ void Tracking::MonocularInitialization()
                     nmatches--;
                 }
             }
-
+            LOG("mpInitializer->Initialize======>");
             // Set Frame Poses
             mInitialFrame.SetPose(cv::Mat::eye(4,4,CV_32F));
             cv::Mat Tcw = cv::Mat::eye(4,4,CV_32F);
             Rcw.copyTo(Tcw.rowRange(0,3).colRange(0,3));
             tcw.copyTo(Tcw.rowRange(0,3).col(3));
             mCurrentFrame.SetPose(Tcw);
-
+            LOG("CreateInitialMapMonocular");
             CreateInitialMapMonocular();
+
         }
     }
 }
@@ -681,6 +687,7 @@ void Tracking::CreateInitialMapMonocular()
     pKFcur->UpdateConnections();
 
     // Bundle Adjustment
+    LOG("New Map created with points");
     cout << "New Map created with " << mpMap->MapPointsInMap() << " points" << endl;
 
     Optimizer::GlobalBundleAdjustemnt(mpMap,20);
@@ -691,7 +698,7 @@ void Tracking::CreateInitialMapMonocular()
 
     if(medianDepth<0 || pKFcur->TrackedMapPoints(1)<100)
     {
-        cout << "Wrong initialization, reseting..." << endl;
+    	LOG("Wrong initialization, reseting...");
         Reset();
         return;
     }
@@ -732,7 +739,7 @@ void Tracking::CreateInitialMapMonocular()
     mpMapDrawer->SetCurrentCameraPose(pKFcur->GetPose());
 
     mpMap->mvpKeyFrameOrigins.push_back(pKFini);
-
+    LOG("mState=OK;");
     mState=OK;
 }
 
@@ -1517,10 +1524,10 @@ bool Tracking::Relocalization()
 void Tracking::Reset()
 {
     mpViewer->RequestStop();
-
+    LOG("System Reseting");
     cout << "System Reseting" << endl;
-    while(!mpViewer->isStopped())
-        usleep(3000);
+//    while(!mpViewer->isStopped())
+//        usleep(3000);
 
     // Reset Local Mapping
     cout << "Reseting Local Mapper...";
@@ -1556,6 +1563,7 @@ void Tracking::Reset()
     mlbLost.clear();
 
     mpViewer->Release();
+    LOG("mpViewer->Release();");
 }
 
 void Tracking::ChangeCalibration(const string &strSettingPath)

@@ -25,6 +25,10 @@
 #include <thread>
 //#include <pangolin/pangolin.h>
 #include <iomanip>
+#include <android/log.h>
+#define LOG_TAG "ORB_SLAM_SYSTEM"
+
+#define LOG(...) __android_log_print(ANDROID_LOG_ERROR,LOG_TAG, __VA_ARGS__)
 
 namespace ORB_SLAM2
 {
@@ -40,6 +44,7 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
         mbDeactivateLocalizationMode(false)
 {
 	_instance = this;
+	LOG("ORB_initiate");
     cout << endl <<
     "ORB-SLAM2 Copyright (C) 2014-2016 Raul Mur-Artal, University of Zaragoza." << endl <<
     "This program comes with ABSOLUTELY NO WARRANTY;" << endl  <<
@@ -212,7 +217,7 @@ cv::Mat System::TrackMonocular(const cv::Mat &im, const double &timestamp)
 {
     if(mSensor!=MONOCULAR)
     {
-        cerr << "ERROR: you called TrackMonocular but input sensor was not set to Monocular." << endl;
+    	LOG("ERROR: you called TrackMonocular but input sensor was not set to Monocular." );
         exit(-1);
     }
 
@@ -249,7 +254,6 @@ cv::Mat System::TrackMonocular(const cv::Mat &im, const double &timestamp)
         mbReset = false;
     }
     }
-
     return mpTracker->GrabImageMonocular(im,timestamp);
 }
 

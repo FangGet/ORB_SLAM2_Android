@@ -23,7 +23,7 @@ JNIEXPORT void JNICALL Java_orb_slam2_android_nativefunc_OrbNdkHelper_initSystem
  * Method:    startCurrentORB
  * Signature: (D[III)[I
  */
-JNIEXPORT jintArray JNICALL Java_orb_slam2_android_nativefunc_OrbNdkHelper_startCurrentORB
+JNIEXPORT jint JNICALL Java_orb_slam2_android_nativefunc_OrbNdkHelper_startCurrentORB
   (JNIEnv *, jclass, jdouble, jintArray, jint, jint);
 
 #ifdef __cplusplus

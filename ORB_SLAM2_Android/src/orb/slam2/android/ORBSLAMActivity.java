@@ -65,6 +65,9 @@ public class ORBSLAMActivity extends Activity implements OnClickListener {
 					// TODO Auto-generated method stub
 					OrbNdkHelper.initSystemWithParameters(vocPath,
 							calibrationPath);
+					
+					Log.e("information==========>",
+							"init has been finished!");
 				}
 			}).start();
 		}
@@ -79,16 +82,16 @@ public class ORBSLAMActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.start:
-//			new Thread(new Runnable() {
-//
-//				@Override
-//				public void run() {
+			new Thread(new Runnable() {
+
+				@Override
+				public void run() {
 					if (!TextUtils.isEmpty(ImgPath)) {
 						File dir = new File(ImgPath);
 						if (dir.isDirectory()) {
 							int i = 0;
 							for (File file : dir.listFiles()) {
-								if (i < 1) {
+								if (i < 1000) {
 									tmp = BitmapFactory.decodeFile(file
 											.getAbsolutePath());
 									runOnUiThread(new Runnable() {
@@ -111,30 +114,31 @@ public class ORBSLAMActivity extends Activity implements OnClickListener {
 									int[] pix = new int[w * h];
 									tmp.getPixels(pix, 0, w, 0, 0, w, h);
 									Log.e("information==========>",
-											"step=======>1");
-									int[] resultInt = OrbNdkHelper
+											"=======>"+i);
+									int resultInt = OrbNdkHelper
 											.startCurrentORB(timestamp, pix, w,
 													h);
+									//Toast.makeText(ORBSLAMActivity.this, "post estimate:"+resultInt, Toast.LENGTH_LONG).show();
 									Log.e("information==========>",
-											"step=======>2");
-									resultImg = Bitmap.createBitmap(w, h,
-											Config.RGB_565);
-									Log.e("information==========>",
-											"step=======>3");
-									resultImg.setPixels(resultInt, 0, w, 0, 0,
-											w, h);
-									Log.e("information==========>",
-											"step=======>4");
-									runOnUiThread(new Runnable() {
-
-										@Override
-										public void run() {
-											// TODO Auto-generated method stub
-											imgDealed.setImageBitmap(resultImg);
-										}
-									});
-									Log.e("information==========>",
-											resultInt.length + " ");
+											"post estimate:"+resultInt);
+//									resultImg = Bitmap.createBitmap(w, h,
+//											Config.RGB_565);
+//									Log.e("information==========>",
+//											"step=======>3");
+//									resultImg.setPixels(resultInt, 0, w, 0, 0,
+//											w, h);
+//									Log.e("information==========>",
+//											"step=======>4");
+//									runOnUiThread(new Runnable() {
+//
+//										@Override
+//										public void run() {
+//											// TODO Auto-generated method stub
+//											imgDealed.setImageBitmap(resultImg);
+//										}
+//									});
+//									Log.e("information==========>",
+//											resultInt.length + " ");
 								}
 
 								i++;
@@ -145,8 +149,8 @@ public class ORBSLAMActivity extends Activity implements OnClickListener {
 						Toast.makeText(ORBSLAMActivity.this, "empty images",
 								Toast.LENGTH_LONG).show();
 					}
-//				}
-//			}).start();
+				}
+			}).start();
 			break;
 		case R.id.stop:
 			break;
