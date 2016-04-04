@@ -16,9 +16,6 @@ Author: **Frank**
 -------------
 
 
-----------
-
-
 To build ORB_SLAM2_Android, you can simply import cloned project into eclipse and import opencv2.4.9forAndroid library into Eclipse.then set it as ORB's library project(it may have been setted already).Then you only have to run ndk-build and library will be generated into libs directory of your project. After all this, your work tree will be like this:
 ![这里写图片描述](http://img.blog.csdn.net/20160404211617003)
 
@@ -27,8 +24,6 @@ To convert it into Android Studio, you need to create a new AS project and add c
 3.Using Instruction
 -------------------
 
-
-----------
 
  1. if you want to test camera mode, please make sure you have installed corresponding version of opencvForAndroid library into your phone and it has been opened;
  2. open the apk. There are two parts for ORB,namely dataset-mode and camera-mode:
@@ -42,9 +37,6 @@ To convert it into Android Studio, you need to create a new AS project and add c
 
 4.Something else
 ----------------
-
-
-----------
 
  1. you can change size of camera preview in res/activity_camera _orb.xml ( ps: I have never run successfully for camera mode,orb can never be matched );
  2. there is some bug with the demonstrate of camera pose, if anyone want to fix it, they can modify ***MapDrawer::DrawCurrentCamera()*** in ***jni/ORB_SLAM2/src/MapDrawer.cc***
