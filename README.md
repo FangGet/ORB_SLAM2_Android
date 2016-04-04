@@ -3,13 +3,9 @@ This project is an Android version for ORB_SLAM2 based on Raul Mur-Artal's opens
 Author: **Frank**
 
 
-----------
-
-	1.Dependency
+1.Dependency
 -------------
 
-
-----------
 
 
  - Eclipse with ADT and android-ndk-r11;
