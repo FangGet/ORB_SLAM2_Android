@@ -39,7 +39,7 @@ To convert it into Android Studio, you need to create a new AS project and add c
 4.Something else
 ----------------
 
- 1. you can change size of camera preview in res/activity_camera _orb.xml ( ps: I have never run successfully for camera mode,orb can never be matched );
+ 1. you can change size of camera preview in res/activity_camera _orb.xml;
  2. there is some bug with the demonstrate of camera pose, if anyone want to fix it, they can modify ***MapDrawer::DrawCurrentCamera()*** in ***jni/ORB_SLAM2/src/MapDrawer.cc***
  3. some dependencies inside ***jni/Thirdparty*** may be excess and can be removed. I have never checked for it;
 
