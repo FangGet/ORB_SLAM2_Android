@@ -23,8 +23,8 @@
 
             <org.opencv.android.JavaCameraView
                 android:id="@+id/tutorial1_activity_java_surface_view"
-                android:layout_width="120dip"
-                android:layout_height="120dip"
+                android:layout_width="200dip"
+                android:layout_height="200dip"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="15dip"
@@ -36,8 +36,8 @@
 
             <org.opencv.android.NativeCameraView
                 android:id="@+id/tutorial1_activity_native_surface_view"
-                android:layout_width="120dip"
-                android:layout_height="120dip"
+                android:layout_width="200dip"
+                android:layout_height="200dip"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="15dip"
