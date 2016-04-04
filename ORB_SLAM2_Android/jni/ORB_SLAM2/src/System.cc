@@ -123,6 +123,11 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
     mpLoopCloser->SetLocalMapper(mpLocalMapper);
 }
 
+void System::drawGL(){
+	LOG("drawGL Thread has been started!");
+	mpViewer->drawGL();
+}
+
 cv::Mat System::TrackStereo(const cv::Mat &imLeft, const cv::Mat &imRight, const double &timestamp)
 {
     if(mSensor!=STEREO)
@@ -254,7 +259,8 @@ cv::Mat System::TrackMonocular(const cv::Mat &im, const double &timestamp)
         mbReset = false;
     }
     }
-    return mpTracker->GrabImageMonocular(im,timestamp);
+   mpTracker->GrabImageMonocular(im,timestamp);
+    return mpFrameDrawer->DrawFrame();
 }
 
 void System::ActivateLocalizationMode()

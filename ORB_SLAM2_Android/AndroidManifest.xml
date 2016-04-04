@@ -5,11 +5,33 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="12"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
     </uses-permission>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front.autofocus"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -42,7 +64,12 @@
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="orb.slam2.android.ORBSLAMActivity"
+            android:name="orb.slam2.android.ORBSLAMForDataSetActivity"
+            android:label="ORB_SLAM2"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="orb.slam2.android.ORBSLAMForCameraActivity"
             android:label="ORB_SLAM2"
             android:screenOrientation="landscape" >
         </activity>

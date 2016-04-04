@@ -82,7 +82,7 @@ public class DataSetModeActivity extends Activity implements OnClickListener{
 				bundle.putString("voc",VOCPath );
 				bundle.putString("calibration",TUMPath );
 				bundle.putString("images",PICPath );
-				Intent intent =new Intent(DataSetModeActivity.this,ORBSLAMActivity.class);
+				Intent intent =new Intent(DataSetModeActivity.this,ORBSLAMForDataSetActivity.class);
 				intent.putExtras(bundle);
 				startActivity(intent);
 				finish();

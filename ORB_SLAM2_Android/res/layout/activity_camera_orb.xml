@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal" >
@@ -20,16 +21,31 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY" />
 
-            <ImageView
-                android:id="@+id/img_origin"
-                android:layout_width="80dip"
-                android:layout_height="80dip"
+            <org.opencv.android.JavaCameraView
+                android:id="@+id/tutorial1_activity_java_surface_view"
+                android:layout_width="120dip"
+                android:layout_height="120dip"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="15dip"
                 android:layout_marginTop="15dip"
                 android:background="@drawable/border"
-                android:scaleType="fitXY" />
+                android:visibility="gone"
+                opencv:camera_id="any"
+                opencv:show_fps="false" />
+
+            <org.opencv.android.NativeCameraView
+                android:id="@+id/tutorial1_activity_native_surface_view"
+                android:layout_width="120dip"
+                android:layout_height="120dip"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="15dip"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/border"
+                android:visibility="gone"
+                opencv:camera_id="any"
+                opencv:show_fps="false" />
         </RelativeLayout>
 
         <View
@@ -59,15 +75,6 @@
                 android:text="stop"
                 android:visibility="gone" />
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="#CCC"
-        android:orientation="horizontal" >
     </LinearLayout>
 
 </RelativeLayout>

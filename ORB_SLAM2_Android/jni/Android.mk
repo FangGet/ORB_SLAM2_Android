@@ -123,6 +123,65 @@ LOCAL_PATH:=$(MAIN_DIR)
 include $(BUILD_SHARED_LIBRARY)
 ############################################################
 
+##############Pangolin模块##################################
+#include $(CLEAR_VARS)
+#MAIN_DIR:=$(LOCAL_PATH)
+#
+#LOCAL_MODULE:=pangolin
+#LOCAL_C_INCLUDES:=$(LOCAL_PATH)/Thirdparty/pangolin/include
+#
+#SRC_PANGOLIN_DIR:=$(LOCAL_PATH)/Thirdparty/pangolin/src
+#LOCAL_SRC_FILES+=$(SRC_PANGOLIN_DIR)/console/SonsoleView.cpp
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/display/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/display/device/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/display/widgets/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/gl/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/gl/compat/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/handler/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/hud/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/image/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/log/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/plot/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/python/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/utils/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/var/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#
+#FILE_LIST:=$(wildcard $(SRC_PANGOLIN_DIR)/video/*.cpp)
+#LOCAL_SRC_FILES+=$(FILE_LIST:$(LOCAL_PATH)/%=%)
+#LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/Thirdparty/pangolin/include
+#
+#LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
+#LOCAL_CPPFLAGS += -D__cplusplus=201103L
+#
+#LOCAL_PATH:=$(MAIN_DIR)
+#
+#include $(BUILD_SHARED_LIBRARY)
+
 ##############ORB_SLAM2模块##################################
 include $(CLEAR_VARS)
 MAIN_DIR:=$(LOCAL_PATH)
@@ -142,6 +201,8 @@ LOCAL_CPP_EXTENSION := .cc
 LOCAL_SHARED_LIBRARIES+=DBoW2
 LOCAL_SHARED_LIBRARIES+=DLib
 LOCAL_SHARED_LIBRARIES+=g2o
+LOCAL_SHARED_LIBRARIES+=pangolin
+LOCAL_LDLIBS += -llog -landroid -lEGL -lGLESv1_CM 
 LOCAL_EXPORT_C_INCLUDES+=$(LOCAL_PATH)/ORB_SLAM2/include
 LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
 LOCAL_CPPFLAGS += -D__cplusplus=201103L
@@ -165,6 +226,8 @@ LOCAL_C_INCLUDES+=orb_slam2_android_nativefunc_OrbNdkHelper.h
 LOCAL_SRC_FILES+=orb_slam2_android_nativefunc_OrbNdkHelper.cpp
 LOCAL_SHARED_LIBRARIES+=ORB_SLAM2
 LOCAL_SHARED_LIBRARIES+=g2o
+LOCAL_LDLIBS += -llog -landroid -lEGL -lGLESv1_CM  
+
 LOCAL_CPPFLAGS := -std=c++11 -pthread -frtti -fexceptions -ftemplate-backtrace-limit=0
 LOCAL_CPPFLAGS += -D__cplusplus=201103L
 LOCAL_PATH:=$(MAIN_DIR)

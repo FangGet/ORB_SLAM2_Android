@@ -40,10 +40,10 @@ public:
 
     void DrawMapPoints();
     void DrawKeyFrames(const bool bDrawKF, const bool bDrawGraph);
-//    void DrawCurrentCamera(pangolin::OpenGlMatrix &Twc);
+    void DrawCurrentCamera(const cv::Mat &M);
     void SetCurrentCameraPose(const cv::Mat &Tcw);
     void SetReferenceKeyFrame(KeyFrame *pKF);
-//    void GetCurrentOpenGLCameraMatrix(pangolin::OpenGlMatrix &M);
+    cv::Mat GetCurrentOpenGLCameraMatrix();
 
 private:
 

@@ -35,8 +35,8 @@ public class MainActivity extends Activity implements OnClickListener{
 			startActivity(new Intent(MainActivity.this,DataSetModeActivity.class));
 			break;
 		case R.id.camera_mode:
-			Toast.makeText(MainActivity.this, "on the way...", Toast.LENGTH_LONG).show();
-			//startActivity(new Intent(MainActivity.this,CameraModeActivity.class));
+			//Toast.makeText(MainActivity.this, "on the way...", Toast.LENGTH_LONG).show();
+			startActivity(new Intent(MainActivity.this,CameraModeActivity.class));
 			break;
 		}
 	}
