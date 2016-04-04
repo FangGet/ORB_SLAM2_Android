@@ -16,7 +16,7 @@ Author: **Frank**
 -------------
 
 
-To build ORB_SLAM2_Android, you can simply import cloned project into eclipse and import opencv2.4.9forAndroid library into Eclipse.then set it as ORB's library project(it may have been setted already).Then you only have to run ndk-build and library will be generated into libs directory of your project. After all this, your work tree will be like this:
+To build ORB_SLAM2_Android, you can simply import cloned project into eclipse and import opencv2.4.9forAndroid library into Eclipse. Then set it as ORB's library project(it may have been setted already).Run ndk-build and library will be generated into ***libs*** directory . After all this, your work tree will be like this:
 ![这里写图片描述](http://img.blog.csdn.net/20160404211617003)
 
 To convert it into Android Studio, you need to create a new AS project and add core code as a module of it while opencv library will also be a module.
