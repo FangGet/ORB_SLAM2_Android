@@ -9,7 +9,7 @@ Author: **Frank**
 
 
  - Eclipse with ADT and android-ndk-r11;
- - OpenCV2.4.9 for JAVA and OpenCV2.4.9 native code;
+ - OpenCV4Android2.4.9,download here:[opencv4android 2.4.9](http://opencv.org/downloads.html "opencv");
  - All necessary dependencies required by ORB_SLAM2 except pangolin(I removed pangolin and rewrited opengl part for android);
  
 2.Build Project 
