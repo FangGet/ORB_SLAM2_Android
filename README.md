@@ -2,6 +2,7 @@ This project is an Android version for ORB_SLAM2 based on Raul Mur-Artal's opens
 
 Author: **Frank**
 
+**If anyone would like to only have a test on it, please visit:[ORB_SLAM2_Android_APK](http://fir.im/uzdx "ORB_SLAM@_Android_APK");**
 
 1.Dependency
 -------------
