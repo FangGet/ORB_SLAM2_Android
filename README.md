@@ -1,4 +1,5 @@
-** This Project is out of date **
+**This Project is out of date**
+
 This project is an Android version for ORB_SLAM2 based on Raul Mur-Artal's opensource project: [ORB_SLAM2](https://github.com/raulmur/ORB_SLAM2 "ORB_SLAM2").
 
 Author: **Frank**
