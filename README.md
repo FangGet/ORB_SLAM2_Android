@@ -50,3 +50,4 @@ To convert it into Android Studio, you need to create a new AS project and add c
 --------
 If you have any questions, feel free to contact me [fangasfrank@gmail.com](mailto://fangasfrank@gmail.com "frank")
 
+6.add commitv1
